@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+
+    "name": "YSK Terms",
+     "options_page": "options.html",
+    "description": "Select terms and save to your personal terms reference book, creating a personal dictionary and reference guide for you to reviw later.",
+    "version": "1.0",
+    "background": {
+        "scripts": ["jquery.js","ysk-common.js","ysk-popup.js"],
+        "persistent": true
+    },
+    "permissions": [
+        "https://*.com/*", "http://*.com/*", "tabs", "activeTab", "contextMenus", "storage"
+    ],
+    "icons": {
+        "128": "128-3.png",
+        "16": "16-go.png"
+    },
+    "browser_action": {
+        "default_icon": "19by19.png",
+        "default_title": "YSK Terms",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "run_at": "document_start",
+        "js": ["jquery.js","ysk-common.js","ysk-client.js"],
+        "css":["ysk-styles.css"]
+    }]
+}
